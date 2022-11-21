@@ -1,0 +1,7 @@
+.env
+.devcontainer
+**/__pycache__
+info.json
+TODO
+src/node_modules/*
+updates.bat

@@ -1,0 +1,47 @@
+.resultsDiv {
+    overflow-y: scroll;
+    height: 20rem;
+    text-align: center;
+    width: inherit;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    font-size: larger;
+    margin-top: 1rem;
+}
+
+.resultsDiv::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.progressBar {
+    margin-top: 1rem;
+}
+
+.textResult {
+    background-color:rgb(249, 243, 252);
+}
+
+.picResult {
+    background-color:rgb(203, 194, 207);
+}
+
+.audioResult {
+    background-color:rgb(245, 229, 253);
+}
+
+.videoResult {
+    background-color:rgb(238, 228, 255);
+}
+
+.jsonResult {
+    background-color:rgb(226, 221, 235);
+}
+
+.loadingResults {
+    margin-top: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,9 @@
+<div id="targetHealthStatus">
+    <plotly-plot *ngIf="graph" [data]="graph.data" [layout]="graph.layout" [updateOnDataChange]="true"></plotly-plot>
+    <div class="loadingGraph" *ngIf="!graph">
+        <h1>GRAPH IS LOADING...</h1>
+        <div>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+    </div>
+</div>

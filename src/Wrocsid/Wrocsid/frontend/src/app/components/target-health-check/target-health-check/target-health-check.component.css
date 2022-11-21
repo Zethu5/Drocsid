@@ -1,0 +1,9 @@
+.targetHealthStatus {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.loadingGraph {
+    margin-top: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+.timeInput {
+    margin-right: 10px;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+button {
+    width: 150px;
+}
+
+.commandBtnsAll {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top : 1rem;
+    height: 20rem;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.commandBtnsAll::-webkit-scrollbar {
+    display: none;
+}
+
+.title {
+    text-align: center;
+}
+
+.commands {
+    margin: 0 auto;
+}
+
+mat-form-field {
+    width: 150px
+}

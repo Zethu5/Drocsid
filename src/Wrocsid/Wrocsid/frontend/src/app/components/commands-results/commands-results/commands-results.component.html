@@ -1,0 +1,30 @@
+<div *ngIf="target_results$ && target_results$?.messages?.length > 0" class="resultsDiv">
+    <div *ngFor="let message of target_results$.messages">
+        <div *ngIf="message && message?.content?.length > 0" class="textResult">
+            {{message.content}}
+        </div>
+        <div *ngIf="message && message?.attachments?.length > 0">
+            <span *ngFor="let attachment of message.attachments">
+                <img *ngIf="isPicture(attachment.content_type)" [src]="attachment.url" class="picResult">
+                <div *ngIf="isAudio(attachment.content_type)" class="audioResult">
+                    <mat-icon>music_video</mat-icon>
+                    <a [href]="attachment.url">{{attachment.filename}}</a>
+                </div>
+                <div *ngIf="isVideo(attachment.content_type)" class="videoResult">
+                    <mat-icon>videocam</mat-icon>
+                    <a [href]="attachment.url">{{attachment.filename}}</a>
+                </div>
+                <div *ngIf="isJSON(attachment.content_type)" class="jsonResult">
+                    <mat-icon>insert_drive_file</mat-icon>
+                    <a [href]="attachment.url">{{attachment.filename}}</a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div *ngIf="!target_results$ || target_results$?.messages?.length == 0" class="loadingResults">
+    <h1>CURRENTLY NO RESULTS TO DISPLAY...</h1>
+</div>
+<div [hidden]="loading_bar_finished" class="progressBar">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

@@ -1,0 +1,25 @@
+.navbar {
+  margin: 0;
+  padding-top: 0.5rem;
+  background-color: rgb(160, 119, 199);
+  color: white;
+  height: 11%;
+}
+
+.navbar span {
+  font-size: 2rem;
+}
+
+.logoTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.logoTitle a {
+  margin-right: 1rem;
+}
+
+.logoTitle span {
+  position: relative;
+  top: -15px;
+}

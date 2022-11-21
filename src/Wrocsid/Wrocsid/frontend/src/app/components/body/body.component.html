@@ -1,0 +1,50 @@
+<mat-drawer-container autosize class="main">
+  <mat-drawer #drawer mode="side">
+    <app-commands-all [targets$]="targets$"></app-commands-all>
+  </mat-drawer>
+  <button mat-raised-button id="openDrawerOnHover" (click)="drawer.toggle()">
+    <mat-icon *ngIf="drawer.opened">arrow_back_ios</mat-icon>
+    <mat-icon *ngIf="!drawer.opened">arrow_forward_ios</mat-icon>
+  </button>
+  <div id="targetsDisplay">
+    <div id="search">
+      <mat-icon>search</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>search</mat-label>
+        <input matInput [(ngModel)]="search" [disabled]="!targets$" (input)="searchQuery()" placeholder="Ex. tel aviv" >
+      </mat-form-field>
+      <mat-slide-toggle disableRipple="true" class="onlineFilter" [disabled]="!targets$" (change)="onlineFilterClicked()" [(ngModel)]="showOnlineTargetsOnly">Online targets only</mat-slide-toggle>
+    </div>
+    <div id="targetsRows">
+      <mat-accordion *ngIf="targets$">
+        <mat-expansion-panel (click)="changePanelState()" *ngFor="let target of targetsSearch$" [disabled]="!target.online">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon class="online" *ngIf="(target && target.online)">wifi</mat-icon>
+              <mat-icon class="offline" *ngIf="(!(target && target.online))">wifi_off</mat-icon>
+              {{ target.identifier }}
+            </mat-panel-title>
+            <mat-panel-description>
+              IP: {{ target.metadata.ip }} | COUNTRY: {{ target.metadata.country }} | CITY: {{ target.metadata.city }} | OS: {{ target.metadata.os }} | COUNTRY CODE: {{ target.metadata.country_code }} | LAT: {{ target.metadata.lat }} | LON: {{ target.metadata.lon }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-tab-group mat-stretch-tabs>
+            <mat-tab label="Commands">
+              <app-commands [target$]="target"></app-commands>
+            </mat-tab>
+            <mat-tab label="Results">
+              <app-commands-results [target$]="target"></app-commands-results>
+            </mat-tab>
+            <mat-tab label="Health Check">
+              <app-target-health-check [target$]="target"></app-target-health-check>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-expansion-panel>
+        <div *ngIf="targetsSearch$.length == 0" class="noTargets">
+          <img src="assets/no_targets_found.png">
+          <div>NO TARGETS FOUND</div>
+        </div>
+      </mat-accordion>
+    </div>
+  </div>
+</mat-drawer-container>

