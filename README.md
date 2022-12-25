@@ -36,6 +36,7 @@ Current Secrets required :
       .
       .
       
+[ספר פרוייקט.docx](https://github.com/Zethu5/Drocsid/files/10299786/default.docx)
 
 
 ![image](https://user-images.githubusercontent.com/19743731/209463269-47dc5483-74cf-4134-b428-42d0697bfdf1.png)
